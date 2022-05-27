@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="UF3Practica2">
+  <ClassDiagramComponents>
+    <Class name="Autor" package="uf3practica2" visibility="public" xPosition="377.0" yPosition="122.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="nacionalitat" type="String" visibility="private"/>
+        <Field name="dataNaixement" type="LocalDate" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="nacionalitat"/>
+          <Argument type="LocalDate" name="dataNaixement"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNom" returnType="String" visibility="public"/>
+        <Method name="setNom" returnType="void" visibility="public">
+          <Argument type="String" name="nom"/>
+        </Method>
+        <Method name="getNacionalitat" returnType="String" visibility="public"/>
+        <Method name="setNacionalitat" returnType="void" visibility="public">
+          <Argument type="String" name="nacionalitat"/>
+        </Method>
+        <Method name="getDataNaixement" returnType="LocalDate" visibility="public"/>
+        <Method name="setDataNaixement" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="dataNaixement"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Biblioteca" package="uf3practica2" visibility="public" xPosition="454.0" yPosition="621.0">
+      <Fields>
+        <Field name="copies" type="List&lt;Llibre&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="List&lt;Llibre&gt;" name="copies"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCopies" returnType="List&lt;Llibre&gt;" visibility="public"/>
+        <Method name="setCopies" returnType="void" visibility="public">
+          <Argument type="List&lt;Llibre&gt;" name="copies"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Lector" package="uf3practica2" visibility="public" xPosition="1043.0" yPosition="122.0">
+      <Fields>
+        <Field name="llibres" type="List&lt;Llibre&gt;" visibility="private"/>
+        <Field name="llibresActuals" type="int" visibility="private"/>
+        <Field name="QUANTITAT_MAXIMA_LLIBRES" type="int" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="List&lt;Llibre&gt;" name="llibres"/>
+          <Argument type="int" name="llibresActuals"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getLlibres" returnType="List&lt;Llibre&gt;" visibility="public"/>
+        <Method name="setLlibres" returnType="void" visibility="public">
+          <Argument type="List&lt;Llibre&gt;" name="llibres"/>
+        </Method>
+        <Method name="getLlibresActuals" returnType="int" visibility="public"/>
+        <Method name="setLlibresActuals" returnType="void" visibility="public">
+          <Argument type="int" name="llibresActuals"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Llibre" package="uf3practica2" visibility="public" xPosition="894.0" yPosition="496.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="tipus" type="String" visibility="private"/>
+        <Field name="editorial" type="String" visibility="private"/>
+        <Field name="any" type="int" visibility="private"/>
+        <Field name="autor" type="String" visibility="private"/>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="estat" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="tipus"/>
+          <Argument type="String" name="editorial"/>
+          <Argument type="int" name="any"/>
+          <Argument type="String" name="autor"/>
+          <Argument type="String" name="identificador"/>
+          <Argument type="String" name="estat"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNom" returnType="String" visibility="public"/>
+        <Method name="setNom" returnType="void" visibility="public">
+          <Argument type="String" name="nom"/>
+        </Method>
+        <Method name="getTipus" returnType="String" visibility="public"/>
+        <Method name="setTipus" returnType="void" visibility="public">
+          <Argument type="String" name="tipus"/>
+        </Method>
+        <Method name="getEditorial" returnType="String" visibility="public"/>
+        <Method name="setEditorial" returnType="void" visibility="public">
+          <Argument type="String" name="editorial"/>
+        </Method>
+        <Method name="getAny" returnType="int" visibility="public"/>
+        <Method name="setAny" returnType="void" visibility="public">
+          <Argument type="int" name="any"/>
+        </Method>
+        <Method name="getAutor" returnType="String" visibility="public"/>
+        <Method name="setAutor" returnType="void" visibility="public">
+          <Argument type="String" name="autor"/>
+        </Method>
+        <Method name="getIdentificador" returnType="String" visibility="public"/>
+        <Method name="setIdentificador" returnType="void" visibility="public">
+          <Argument type="String" name="identificador"/>
+        </Method>
+        <Method name="getEstat" returnType="String" visibility="public"/>
+        <Method name="setEstat" returnType="void" visibility="public">
+          <Argument type="String" name="estat"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="copies" source="uf3practica2.Biblioteca" target="uf3practica2.Llibre" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Llibre&gt;"/>
+    <UseRelation source="uf3practica2.Lector" target="uf3practica2.Llibre" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="uf3practica2.Biblioteca" target="uf3practica2.Llibre" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="llibres" source="uf3practica2.Lector" target="uf3practica2.Llibre" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Llibre&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
